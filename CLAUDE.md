@@ -85,7 +85,7 @@ npm run build    # build de producción
 - [x] Worker de Pyodide + ejecución básica de código — commit 17d9166
 - [x] Runner de tests en Python — 37 tests Vitest pasando
 - [x] Modelo de dominio del RPG (XP, niveles, quests) + tests — 70 tests Vitest pasando
-- [ ] Capa de contenido + carga de Zona 0
+- [x] Capa de contenido + carga de Zona 0 y Zona 1 — 80 tests Vitest pasando
 - [ ] UI: editor + panel de quest + HUD
 - [ ] Mapa de zonas y navegación
 - [ ] Persistencia en localStorage
