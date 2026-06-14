@@ -87,6 +87,6 @@ npm run build    # build de producción
 - [x] Modelo de dominio del RPG (XP, niveles, quests) + tests — 70 tests Vitest pasando
 - [x] Capa de contenido + carga de Zona 0 y Zona 1 — 80 tests Vitest pasando
 - [x] UI: editor + panel de quest + HUD — build limpio, 80 tests pasando
-- [ ] Mapa de zonas y navegación
-- [ ] Persistencia en localStorage
+- [x] Mapa de zonas y navegación — incluido en Fase 6
+- [x] Persistencia en localStorage — capa storage/ con 85 tests pasando
 - [ ] Contenido completo del Módulo 1
