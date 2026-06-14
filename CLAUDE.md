@@ -82,7 +82,7 @@ npm run build    # build de producción
 ## Estado actual
 
 - [x] Scaffolding del proyecto (Vite + React + TS + Tailwind) — commit 696ba49
-- [ ] Worker de Pyodide + ejecución básica de código
+- [x] Worker de Pyodide + ejecución básica de código — commit 17d9166
 - [ ] Runner de tests en Python
 - [ ] Modelo de dominio del RPG (XP, niveles, quests) + tests
 - [ ] Capa de contenido + carga de Zona 0
