@@ -81,9 +81,7 @@ npm run build    # build de producción
 
 ## Estado actual
 
-(Actualizar a medida que avanzamos. Empezar por el plan en `KICKOFF_PROMPT.md`.)
-
-- [ ] Scaffolding del proyecto (Vite + React + TS + Tailwind)
+- [x] Scaffolding del proyecto (Vite + React + TS + Tailwind) — commit 696ba49
 - [ ] Worker de Pyodide + ejecución básica de código
 - [ ] Runner de tests en Python
 - [ ] Modelo de dominio del RPG (XP, niveles, quests) + tests
