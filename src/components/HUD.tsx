@@ -1,5 +1,6 @@
 import { useGameStore } from '../store/gameStore'
 import { xpForNextLevel } from '../game/config'
+import Grimoire from './Grimoire'
 
 export default function HUD() {
   const player = useGameStore((s) => s.player)
@@ -39,6 +40,8 @@ export default function HUD() {
           <span className="text-gray-500">sabiduría</span>
         </div>
       )}
+
+      <Grimoire />
     </div>
   )
 }
