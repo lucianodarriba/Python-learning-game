@@ -83,8 +83,8 @@ npm run build    # build de producción
 
 - [x] Scaffolding del proyecto (Vite + React + TS + Tailwind) — commit 696ba49
 - [x] Worker de Pyodide + ejecución básica de código — commit 17d9166
-- [ ] Runner de tests en Python
-- [ ] Modelo de dominio del RPG (XP, niveles, quests) + tests
+- [x] Runner de tests en Python — 37 tests Vitest pasando
+- [x] Modelo de dominio del RPG (XP, niveles, quests) + tests — 70 tests Vitest pasando
 - [ ] Capa de contenido + carga de Zona 0
 - [ ] UI: editor + panel de quest + HUD
 - [ ] Mapa de zonas y navegación
