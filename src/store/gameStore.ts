@@ -5,6 +5,7 @@ import { revealHiddenQuests } from '../game/quests'
 import type { PlayerState } from '../game/types'
 import type { Challenge } from '../content/loader'
 import type { ZoneDefinition } from '../game/zones'
+import { saveProgress, loadProgress } from '../storage'
 
 interface GameState {
   player: PlayerState
@@ -21,7 +22,7 @@ interface GameState {
 }
 
 export const useGameStore = create<GameState>((set, get) => ({
-  player: createInitialPlayer(),
+  player: loadProgress() ?? createInitialPlayer(),
   activeZoneId: null,
   activeChallengeId: null,
   zones: [],
@@ -44,6 +45,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     )
     const nextPlayer = applyQuestReward(player, challenge.id, reward)
     set({ player: nextPlayer })
+    saveProgress(nextPlayer)
   },
 
   getRevealedHiddenQuests: (allHidden) => {
