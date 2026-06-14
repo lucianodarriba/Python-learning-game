@@ -1,0 +1,80 @@
+[
+  {
+    "id": "z0-sq-01",
+    "type": "side",
+    "mode": "output",
+    "title": "El saludo del aprendiz",
+    "npc": "Archimago Bytus",
+    "prompt": "Imprimí el texto exacto: `Hola, Pythonia!`",
+    "starterCode": "# Escribí tu código acá\n",
+    "expectedOutput": "Hola, Pythonia!",
+    "hints": [
+      "Usá `print()` con el texto entre comillas.",
+      "`print(\"Hola, Pythonia!\")` es la solución."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z0-sq-02",
+    "type": "side",
+    "mode": "output",
+    "title": "El conjuro de tres líneas",
+    "npc": "Archimago Bytus",
+    "prompt": "Imprimí exactamente tres líneas:\n```\nPrimera línea\nSegunda línea\nTercera línea\n```",
+    "starterCode": "# Usá tres print() uno debajo del otro\n",
+    "expectedOutput": "Primera línea\nSegunda línea\nTercera línea",
+    "hints": [
+      "Necesitás tres instrucciones `print()`, una por línea.",
+      "Cada `print()` imprime una línea. Tres `print()` = tres líneas."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z0-sq-03",
+    "type": "side",
+    "mode": "output",
+    "title": "El arte del comentario",
+    "npc": "Archimago Bytus",
+    "prompt": "Escribí un comentario que diga `# Mi primer programa` y luego imprimí `Funciona!`",
+    "starterCode": "# Escribí el comentario acá\n# Y luego el print\n",
+    "expectedOutput": "Funciona!",
+    "hints": [
+      "Los comentarios empiezan con `#`. Python los ignora.",
+      "El `print()` debe estar en una línea sin `#` al principio."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z0-main",
+    "type": "main",
+    "mode": "output",
+    "title": "Jefe: La Ficha del Aventurero",
+    "npc": "Guardián del Portal",
+    "prompt": "Imprimí una ficha de aventurero con exactamente estas tres líneas:\n```\nNombre: Ada\nClase: Aprendiz\nNivel: 1\n```",
+    "starterCode": "# Imprimí las tres líneas de la ficha\n",
+    "expectedOutput": "Nombre: Ada\nClase: Aprendiz\nNivel: 1",
+    "hints": [
+      "Necesitás tres `print()`, uno para cada línea de la ficha.",
+      "Copiá el texto exacto, incluyendo los `:` y los espacios."
+    ],
+    "xp": 90,
+    "unlocks": "z1"
+  },
+  {
+    "id": "z0-hidden-sep",
+    "type": "hidden",
+    "mode": "output",
+    "revealWhen": "completed:z0-sq-02",
+    "title": "Magia oculta: print con superpoderes",
+    "npc": "Archimago Bytus",
+    "prompt": "Descubriste que `print()` tiene parámetros secretos. Usá `print(\"A\", \"B\", \"C\", sep=\"-\")` para imprimir `A-B-C`",
+    "starterCode": "# Probá print con sep=\nprint(\"A\", \"B\", \"C\", sep=\"-\")\n",
+    "expectedOutput": "A-B-C",
+    "hints": [
+      "`sep` define el separador entre los argumentos de print.",
+      "`print(\"A\", \"B\", \"C\", sep=\"-\")` imprime `A-B-C`."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]

@@ -1,0 +1,70 @@
+{
+  "module": 1,
+  "title": "Fundamentos",
+  "zones": [
+    {
+      "id": "z0",
+      "title": "El Despertar",
+      "concept": "print y ejecución",
+      "description": "Tu primer hechizo: hacer que la computadora hable.",
+      "requires": [],
+      "minSideQuestsForBoss": 2
+    },
+    {
+      "id": "z1",
+      "title": "Variables y Tipos",
+      "concept": "variables",
+      "description": "Los contenedores de tu grimorio: guardar información para usarla después.",
+      "requires": ["z0"],
+      "minSideQuestsForBoss": 3
+    },
+    {
+      "id": "z2",
+      "title": "Operadores y Expresiones",
+      "concept": "operadores",
+      "description": "La aritmética de la magia: calcular, comparar y combinar.",
+      "requires": ["z1"],
+      "minSideQuestsForBoss": 3
+    },
+    {
+      "id": "z3",
+      "title": "Cadenas de Texto",
+      "concept": "strings",
+      "description": "Palabras y frases: el lenguaje de los hechizos.",
+      "requires": ["z2"],
+      "minSideQuestsForBoss": 3
+    },
+    {
+      "id": "z4",
+      "title": "Estructuras de Decisión",
+      "concept": "if/elif/else",
+      "description": "El arte de elegir: tu código toma decisiones.",
+      "requires": ["z3"],
+      "minSideQuestsForBoss": 3
+    },
+    {
+      "id": "z5",
+      "title": "Bucles",
+      "concept": "while/for",
+      "description": "La repetición como poder: hacer lo mismo muchas veces sin cansarse.",
+      "requires": ["z4"],
+      "minSideQuestsForBoss": 3
+    },
+    {
+      "id": "z6",
+      "title": "Listas",
+      "concept": "listas",
+      "description": "Colecciones de poder: guardar muchos valores en uno solo.",
+      "requires": ["z5"],
+      "minSideQuestsForBoss": 3
+    },
+    {
+      "id": "z7",
+      "title": "Diccionarios",
+      "concept": "diccionarios",
+      "description": "El grimorio indexado: acceder a información por nombre, no por posición.",
+      "requires": ["z6"],
+      "minSideQuestsForBoss": 3
+    }
+  ]
+}
