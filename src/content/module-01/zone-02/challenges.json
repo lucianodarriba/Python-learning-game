@@ -1,0 +1,126 @@
+[
+  {
+    "id": "z2-sq-01",
+    "type": "side",
+    "mode": "function",
+    "title": "El área del cuadrado",
+    "npc": "Geómetra Euclid",
+    "prompt": "Definí una función `area_cuadrado(lado)` que devuelva el área de un cuadrado (lado al cuadrado).",
+    "starterCode": "def area_cuadrado(lado):\n    pass\n",
+    "tests": [
+      { "name": "area_cuadrado(3) == 9", "call": "area_cuadrado(3)", "expected": 9 },
+      { "name": "area_cuadrado(5) == 25", "call": "area_cuadrado(5)", "expected": 25 },
+      { "name": "area_cuadrado(1) == 1", "call": "area_cuadrado(1)", "expected": 1 }
+    ],
+    "hints": [
+      "El área de un cuadrado es lado × lado.",
+      "En Python, la potencia se escribe con `**`: `lado ** 2`."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z2-sq-02",
+    "type": "side",
+    "mode": "function",
+    "title": "¿Es par?",
+    "npc": "Geómetra Euclid",
+    "prompt": "Definí una función `es_par(n)` que devuelva `True` si `n` es par y `False` si es impar.",
+    "starterCode": "def es_par(n):\n    pass\n",
+    "tests": [
+      { "name": "es_par(4) == True", "call": "es_par(4)", "expected": true },
+      { "name": "es_par(7) == False", "call": "es_par(7)", "expected": false },
+      { "name": "es_par(0) == True", "call": "es_par(0)", "expected": true },
+      { "name": "es_par(1) == False", "call": "es_par(1)", "expected": false }
+    ],
+    "hints": [
+      "Un número es par si el resto de dividirlo por 2 es 0.",
+      "Usá `%` para obtener el resto: `n % 2 == 0`."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z2-sq-03",
+    "type": "side",
+    "mode": "function",
+    "title": "El promedio",
+    "npc": "Geómetra Euclid",
+    "prompt": "Definí una función `promedio(a, b, c)` que devuelva el promedio de tres números.",
+    "starterCode": "def promedio(a, b, c):\n    pass\n",
+    "tests": [
+      { "name": "promedio(1, 2, 3) == 2.0", "call": "promedio(1, 2, 3)", "expected": 2.0 },
+      { "name": "promedio(0, 0, 0) == 0.0", "call": "promedio(0, 0, 0)", "expected": 0.0 },
+      { "name": "promedio(10, 20, 30) == 20.0", "call": "promedio(10, 20, 30)", "expected": 20.0 }
+    ],
+    "hints": [
+      "El promedio es la suma dividida por la cantidad.",
+      "`(a + b + c) / 3` divide usando división real (float)."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z2-int-01",
+    "type": "integration",
+    "mode": "function",
+    "title": "Descuento en la tienda",
+    "npc": "Mercader Vito",
+    "prompt": "Definí una función `precio_final(precio, descuento_pct)` que devuelva el precio después de aplicar el descuento. `descuento_pct` es un número entre 0 y 100. Ejemplo: `precio_final(100, 20)` devuelve `80.0`.",
+    "starterCode": "def precio_final(precio, descuento_pct):\n    pass\n",
+    "tests": [
+      { "name": "precio_final(100, 20) == 80.0", "call": "precio_final(100, 20)", "expected": 80.0 },
+      { "name": "precio_final(200, 50) == 100.0", "call": "precio_final(200, 50)", "expected": 100.0 },
+      { "name": "precio_final(100, 0) == 100.0", "call": "precio_final(100, 0)", "expected": 100.0 },
+      { "name": "precio_final(100, 100) == 0.0", "call": "precio_final(100, 100)", "expected": 0.0 }
+    ],
+    "hints": [
+      "El descuento en valor es `precio * descuento_pct / 100`.",
+      "Restá el descuento al precio original."
+    ],
+    "xp": 40,
+    "grimoire": "operadores-aritmeticos"
+  },
+  {
+    "id": "z2-main",
+    "type": "main",
+    "mode": "function",
+    "title": "Jefe: La Calculadora de Daño",
+    "npc": "General Bytox",
+    "prompt": "Definí una función `calcular_daño(ataque, defensa, critico)` donde:\n- El daño base es `ataque - defensa` (mínimo 0)\n- Si `critico` es `True`, el daño se multiplica por 2\n- Devolvé el daño final como entero.\nEjemplo: `calcular_daño(10, 3, True)` → `14`",
+    "starterCode": "def calcular_daño(ataque, defensa, critico):\n    pass\n",
+    "tests": [
+      { "name": "calcular_daño(10, 3, False) == 7", "call": "calcular_daño(10, 3, False)", "expected": 7 },
+      { "name": "calcular_daño(10, 3, True) == 14", "call": "calcular_daño(10, 3, True)", "expected": 14 },
+      { "name": "calcular_daño(5, 10, False) == 0", "call": "calcular_daño(5, 10, False)", "expected": 0 },
+      { "name": "calcular_daño(5, 10, True) == 0", "call": "calcular_daño(5, 10, True)", "expected": 0 },
+      { "name": "calcular_daño(20, 5, True) == 30", "call": "calcular_daño(20, 5, True)", "expected": 30 }
+    ],
+    "hints": [
+      "Calculá el daño base primero, asegurate de que sea mínimo 0.",
+      "Para el mínimo, podés usar `max(0, ataque - defensa)`.",
+      "Multiplicá por 2 solo si `critico` es True."
+    ],
+    "xp": 90,
+    "unlocks": "z3"
+  },
+  {
+    "id": "z2-hidden-chained",
+    "type": "hidden",
+    "mode": "function",
+    "revealWhen": "completed:z2-sq-02",
+    "title": "Magia oculta: comparaciones encadenadas",
+    "npc": "Geómetra Euclid",
+    "prompt": "En Python podés encadenar comparaciones como en matemática. Definí `en_rango(x, minimo, maximo)` que devuelva `True` si `minimo <= x <= maximo` usando una sola comparación encadenada.",
+    "starterCode": "def en_rango(x, minimo, maximo):\n    # Usá una comparación encadenada\n    pass\n",
+    "tests": [
+      { "name": "en_rango(5, 1, 10) == True", "call": "en_rango(5, 1, 10)", "expected": true },
+      { "name": "en_rango(0, 1, 10) == False", "call": "en_rango(0, 1, 10)", "expected": false },
+      { "name": "en_rango(10, 1, 10) == True", "call": "en_rango(10, 1, 10)", "expected": true },
+      { "name": "en_rango(1, 1, 10) == True", "call": "en_rango(1, 1, 10)", "expected": true }
+    ],
+    "hints": [
+      "En Python podés escribir `minimo <= x <= maximo` directamente.",
+      "Es lo mismo que `minimo <= x and x <= maximo`, pero más elegante."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]

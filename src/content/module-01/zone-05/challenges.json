@@ -1,0 +1,126 @@
+[
+  {
+    "id": "z5-sq-01",
+    "type": "side",
+    "mode": "function",
+    "title": "La suma de 1 a N",
+    "npc": "Contador Summex",
+    "prompt": "Definí una función `suma_hasta(n)` que devuelva la suma de todos los números del 1 al n (inclusive). Ejemplo: `suma_hasta(5)` → `15`",
+    "starterCode": "def suma_hasta(n):\n    pass\n",
+    "tests": [
+      { "name": "suma_hasta(5) == 15", "call": "suma_hasta(5)", "expected": 15 },
+      { "name": "suma_hasta(1) == 1", "call": "suma_hasta(1)", "expected": 1 },
+      { "name": "suma_hasta(10) == 55", "call": "suma_hasta(10)", "expected": 55 },
+      { "name": "suma_hasta(0) == 0", "call": "suma_hasta(0)", "expected": 0 }
+    ],
+    "hints": [
+      "Usá un acumulador: `total = 0`, luego sumá en un `for`.",
+      "`for i in range(1, n+1): total += i`"
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z5-sq-02",
+    "type": "side",
+    "mode": "function",
+    "title": "Tabla de multiplicar",
+    "npc": "Contador Summex",
+    "prompt": "Definí una función `tabla(n)` que devuelva una lista con los primeros 10 múltiplos de n (de n×1 a n×10). Ejemplo: `tabla(3)` → `[3, 6, 9, 12, 15, 18, 21, 24, 27, 30]`",
+    "starterCode": "def tabla(n):\n    pass\n",
+    "tests": [
+      { "name": "tabla(2)[0] == 2", "call": "tabla(2)[0]", "expected": 2 },
+      { "name": "tabla(2)[-1] == 20", "call": "tabla(2)[-1]", "expected": 20 },
+      { "name": "tabla(3) completa", "call": "tabla(3)", "expected": [3,6,9,12,15,18,21,24,27,30] },
+      { "name": "len(tabla(5)) == 10", "call": "len(tabla(5))", "expected": 10 }
+    ],
+    "hints": [
+      "Creá una lista vacía y usá `.append()` en un `for`.",
+      "`for i in range(1, 11): resultado.append(n * i)`"
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z5-sq-03",
+    "type": "side",
+    "mode": "function",
+    "title": "Contar pares",
+    "npc": "Contador Summex",
+    "prompt": "Definí una función `contar_pares(n)` que devuelva cuántos números pares hay entre 1 y n (inclusive).",
+    "starterCode": "def contar_pares(n):\n    pass\n",
+    "tests": [
+      { "name": "contar_pares(10) == 5", "call": "contar_pares(10)", "expected": 5 },
+      { "name": "contar_pares(1) == 0", "call": "contar_pares(1)", "expected": 0 },
+      { "name": "contar_pares(4) == 2", "call": "contar_pares(4)", "expected": 2 },
+      { "name": "contar_pares(0) == 0", "call": "contar_pares(0)", "expected": 0 }
+    ],
+    "hints": [
+      "Recorrés de 1 a n y contás los que cumplen `i % 2 == 0`.",
+      "Podés también usar `range(2, n+1, 2)` para iterar solo los pares."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z5-int-01",
+    "type": "integration",
+    "mode": "function",
+    "title": "La tirada de dado",
+    "npc": "Dado Randolph",
+    "prompt": "Definí `tiradas_hasta_seis(dados)` que reciba una lista de enteros (las tiradas) y devuelva cuántas tiradas hubo hasta obtener el primer 6 (inclusive). Si no hay ningún 6, devolvé el total de tiradas.",
+    "starterCode": "def tiradas_hasta_seis(dados):\n    pass\n",
+    "tests": [
+      { "name": "primer 6 en pos 3", "call": "tiradas_hasta_seis([3, 1, 6, 2, 6])", "expected": 3 },
+      { "name": "6 al inicio", "call": "tiradas_hasta_seis([6, 3, 2])", "expected": 1 },
+      { "name": "sin 6", "call": "tiradas_hasta_seis([1, 2, 3, 4])", "expected": 4 },
+      { "name": "solo un 6", "call": "tiradas_hasta_seis([6])", "expected": 1 }
+    ],
+    "hints": [
+      "Recorrí la lista con `for i, dado in enumerate(dados, 1):`.",
+      "Cuando encontrés un 6, devolvé `i` (el número de tiradas)."
+    ],
+    "xp": 40,
+    "grimoire": "bucles-for-while"
+  },
+  {
+    "id": "z5-main",
+    "type": "main",
+    "mode": "function",
+    "title": "Jefe: La Torre de N Pisos",
+    "npc": "Arquitecto Loopy",
+    "prompt": "Definí `torre(n)` que devuelva una lista de strings representando una torre de n pisos de arriba hacia abajo. Cada piso tiene el formato `'Piso X'`. Ejemplo: `torre(3)` → `['Piso 3', 'Piso 2', 'Piso 1']`",
+    "starterCode": "def torre(n):\n    pass\n",
+    "tests": [
+      { "name": "torre(3)", "call": "torre(3)", "expected": ["Piso 3", "Piso 2", "Piso 1"] },
+      { "name": "torre(1)", "call": "torre(1)", "expected": ["Piso 1"] },
+      { "name": "torre(5)[0]", "call": "torre(5)[0]", "expected": "Piso 5" },
+      { "name": "torre(5)[-1]", "call": "torre(5)[-1]", "expected": "Piso 1" },
+      { "name": "len(torre(4))", "call": "len(torre(4))", "expected": 4 }
+    ],
+    "hints": [
+      "Usá `range(n, 0, -1)` para contar hacia atrás.",
+      "`for i in range(n, 0, -1): resultado.append(f'Piso {i}')`"
+    ],
+    "xp": 90,
+    "unlocks": "z6"
+  },
+  {
+    "id": "z5-hidden-range",
+    "type": "hidden",
+    "mode": "function",
+    "revealWhen": "completed:z5-sq-01",
+    "title": "Magia oculta: range con paso",
+    "npc": "Contador Summex",
+    "prompt": "Definí `multiplos_de(n, hasta)` que devuelva una lista de todos los múltiplos de n desde n hasta `hasta` (inclusive si es múltiplo). Usá `range` con tres argumentos.",
+    "starterCode": "def multiplos_de(n, hasta):\n    pass\n",
+    "tests": [
+      { "name": "multiplos_de(3, 9)", "call": "multiplos_de(3, 9)", "expected": [3, 6, 9] },
+      { "name": "multiplos_de(5, 20)", "call": "multiplos_de(5, 20)", "expected": [5, 10, 15, 20] },
+      { "name": "multiplos_de(7, 6)", "call": "multiplos_de(7, 6)", "expected": [] }
+    ],
+    "hints": [
+      "`range(n, hasta+1, n)` genera múltiplos de n hasta hasta.",
+      "Convertí el range a lista: `list(range(n, hasta+1, n))`."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]

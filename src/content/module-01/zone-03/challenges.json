@@ -1,0 +1,117 @@
+[
+  {
+    "id": "z3-sq-01",
+    "type": "side",
+    "mode": "function",
+    "title": "El encantamiento de mayúsculas",
+    "npc": "Escribana Graceful",
+    "prompt": "Definí una función `gritar(texto)` que devuelva el texto en mayúsculas.",
+    "starterCode": "def gritar(texto):\n    pass\n",
+    "tests": [
+      { "name": "gritar('hola') == 'HOLA'", "call": "gritar('hola')", "expected": "HOLA" },
+      { "name": "gritar('python') == 'PYTHON'", "call": "gritar('python')", "expected": "PYTHON" },
+      { "name": "gritar('Ada') == 'ADA'", "call": "gritar('Ada')", "expected": "ADA" }
+    ],
+    "hints": [
+      "Los strings tienen un método `.upper()` que convierte a mayúsculas.",
+      "`texto.upper()` devuelve el string en mayúsculas."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z3-sq-02",
+    "type": "side",
+    "mode": "function",
+    "title": "Las iniciales del aventurero",
+    "npc": "Escribana Graceful",
+    "prompt": "Definí una función `iniciales(nombre, apellido)` que devuelva las iniciales en mayúsculas separadas por un punto. Ejemplo: `iniciales('ada', 'lovelace')` → `'A.L'`",
+    "starterCode": "def iniciales(nombre, apellido):\n    pass\n",
+    "tests": [
+      { "name": "iniciales('ada', 'lovelace') == 'A.L'", "call": "iniciales('ada', 'lovelace')", "expected": "A.L" },
+      { "name": "iniciales('Alan', 'Turing') == 'A.T'", "call": "iniciales('Alan', 'Turing')", "expected": "A.T" }
+    ],
+    "hints": [
+      "Podés acceder al primer carácter de un string con `[0]`.",
+      "`nombre[0].upper() + '.' + apellido[0].upper()` construye las iniciales."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z3-sq-03",
+    "type": "side",
+    "mode": "function",
+    "title": "Contar caracteres",
+    "npc": "Escribana Graceful",
+    "prompt": "Definí una función `largo_sin_espacios(texto)` que devuelva la cantidad de caracteres del texto ignorando los espacios en los extremos (pero no los del medio).",
+    "starterCode": "def largo_sin_espacios(texto):\n    pass\n",
+    "tests": [
+      { "name": "largo_sin_espacios('hola') == 4", "call": "largo_sin_espacios('hola')", "expected": 4 },
+      { "name": "largo_sin_espacios('  hola  ') == 4", "call": "largo_sin_espacios('  hola  ')", "expected": 4 },
+      { "name": "largo_sin_espacios('hola mundo') == 10", "call": "largo_sin_espacios('hola mundo')", "expected": 10 }
+    ],
+    "hints": [
+      "`.strip()` elimina los espacios de los extremos.",
+      "`len(texto.strip())` devuelve el largo sin espacios de los extremos."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z3-int-01",
+    "type": "integration",
+    "mode": "function",
+    "title": "El nombre de usuario",
+    "npc": "Registrador Sys",
+    "prompt": "Definí una función `crear_usuario(nombre, apellido, numero)` que devuelva un nombre de usuario con el formato: primera letra del nombre en minúscula + apellido en minúscula + número. Ejemplo: `crear_usuario('Ada', 'Lovelace', 42)` → `'alovelace42'`",
+    "starterCode": "def crear_usuario(nombre, apellido, numero):\n    pass\n",
+    "tests": [
+      { "name": "crear_usuario('Ada', 'Lovelace', 42) == 'alovelace42'", "call": "crear_usuario('Ada', 'Lovelace', 42)", "expected": "alovelace42" },
+      { "name": "crear_usuario('Alan', 'Turing', 1) == 'aturing1'", "call": "crear_usuario('Alan', 'Turing', 1)", "expected": "aturing1" }
+    ],
+    "hints": [
+      "Necesitás combinar: primera letra del nombre + apellido en minúsculas + número como string.",
+      "f-string: `f\"{nombre[0].lower()}{apellido.lower()}{numero}\"`"
+    ],
+    "xp": 40,
+    "grimoire": "strings-metodos"
+  },
+  {
+    "id": "z3-main",
+    "type": "main",
+    "mode": "function",
+    "title": "Jefe: El Parser de Comandos",
+    "npc": "Oráculo CMD",
+    "prompt": "Definí una función `parsear_comando(comando)` que reciba un string como `'atacar dragon'` y devuelva una tupla `(accion, objetivo)` donde ambos están en minúsculas y sin espacios extras. Ejemplo: `parsear_comando('  Atacar  Dragon  ')` → `('atacar', 'dragon')`",
+    "starterCode": "def parsear_comando(comando):\n    pass\n",
+    "tests": [
+      { "name": "parsear_comando('atacar dragon')", "call": "parsear_comando('atacar dragon')", "expected": ["atacar", "dragon"] },
+      { "name": "parsear_comando('  Atacar  Dragon  ')", "call": "parsear_comando('  Atacar  Dragon  ')", "expected": ["atacar", "dragon"] },
+      { "name": "parsear_comando('HUIR castillo')", "call": "parsear_comando('HUIR castillo')", "expected": ["huir", "castillo"] }
+    ],
+    "hints": [
+      "Primero limpiar con `.strip()`, luego `.lower()`, luego `.split()`.",
+      "`.split()` sin argumentos divide por cualquier cantidad de espacios."
+    ],
+    "xp": 90,
+    "unlocks": "z4"
+  },
+  {
+    "id": "z3-hidden-fstring",
+    "type": "hidden",
+    "mode": "function",
+    "revealWhen": "completed:z3-sq-01",
+    "title": "Magia oculta: f-strings vs concatenación",
+    "npc": "Escribana Graceful",
+    "prompt": "Definí `presentacion_elegante(nombre, nivel)` que use un f-string para devolver `'[nombre] — Nivel [nivel]'`. Los f-strings son más legibles que concatenar con `+`.",
+    "starterCode": "def presentacion_elegante(nombre, nivel):\n    # Usá un f-string\n    pass\n",
+    "tests": [
+      { "name": "presentacion_elegante('Ada', 5)", "call": "presentacion_elegante('Ada', 5)", "expected": "Ada — Nivel 5" },
+      { "name": "presentacion_elegante('Turing', 99)", "call": "presentacion_elegante('Turing', 99)", "expected": "Turing — Nivel 99" }
+    ],
+    "hints": [
+      "Un f-string se escribe con `f` antes de las comillas: `f\"{variable}\"`.",
+      "`f\"{nombre} — Nivel {nivel}\"` es la solución."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]

@@ -1,0 +1,121 @@
+[
+  {
+    "id": "z6-sq-01",
+    "type": "side",
+    "mode": "function",
+    "title": "El promedio de la lista",
+    "npc": "Archivista Listara",
+    "prompt": "Definí `promedio_lista(numeros)` que reciba una lista de números y devuelva su promedio. Si la lista está vacía, devolvé `0.0`.",
+    "starterCode": "def promedio_lista(numeros):\n    pass\n",
+    "tests": [
+      { "name": "promedio_lista([1,2,3]) == 2.0", "call": "promedio_lista([1, 2, 3])", "expected": 2.0 },
+      { "name": "promedio_lista([10]) == 10.0", "call": "promedio_lista([10])", "expected": 10.0 },
+      { "name": "promedio_lista([]) == 0.0", "call": "promedio_lista([])", "expected": 0.0 },
+      { "name": "promedio_lista([2,4]) == 3.0", "call": "promedio_lista([2, 4])", "expected": 3.0 }
+    ],
+    "hints": [
+      "Verificá si la lista está vacía antes de dividir.",
+      "`sum(numeros) / len(numeros)` calcula el promedio."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z6-sq-02",
+    "type": "side",
+    "mode": "function",
+    "title": "Filtrar pares",
+    "npc": "Archivista Listara",
+    "prompt": "Definí `solo_pares(numeros)` que devuelva una nueva lista con solo los números pares de la lista original.",
+    "starterCode": "def solo_pares(numeros):\n    pass\n",
+    "tests": [
+      { "name": "solo_pares([1,2,3,4,5,6])", "call": "solo_pares([1, 2, 3, 4, 5, 6])", "expected": [2, 4, 6] },
+      { "name": "solo_pares([1,3,5])", "call": "solo_pares([1, 3, 5])", "expected": [] },
+      { "name": "solo_pares([2,4,6])", "call": "solo_pares([2, 4, 6])", "expected": [2, 4, 6] }
+    ],
+    "hints": [
+      "Creá una lista vacía y usá un `for` para agregar los pares con `.append()`.",
+      "Un número es par si `n % 2 == 0`."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z6-sq-03",
+    "type": "side",
+    "mode": "function",
+    "title": "El máximo manual",
+    "npc": "Archivista Listara",
+    "prompt": "Definí `maximo(numeros)` que devuelva el número más grande de la lista sin usar `max()`. Si la lista está vacía, devolvé `None`.",
+    "starterCode": "def maximo(numeros):\n    pass\n",
+    "tests": [
+      { "name": "maximo([3,1,4,1,5,9]) == 9", "call": "maximo([3, 1, 4, 1, 5, 9])", "expected": 9 },
+      { "name": "maximo([1]) == 1", "call": "maximo([1])", "expected": 1 },
+      { "name": "maximo([]) == None", "call": "maximo([])", "expected": null }
+    ],
+    "hints": [
+      "Empezá con el primer elemento como mayor hasta ahora.",
+      "Si la lista está vacía, devolvé `None` antes de empezar."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z6-int-01",
+    "type": "integration",
+    "mode": "function",
+    "title": "El inventario del aventurero",
+    "npc": "Tendero Stockus",
+    "prompt": "Definí `gestionar_inventario(items, agregar, quitar)` que tome una lista de items actuales, una lista de items a agregar y una lista de items a quitar. Devolvé la lista resultante ordenada alfabéticamente.",
+    "starterCode": "def gestionar_inventario(items, agregar, quitar):\n    pass\n",
+    "tests": [
+      { "name": "caso básico", "call": "gestionar_inventario(['escudo', 'espada'], ['poción'], ['escudo'])", "expected": ["espada", "poción"] },
+      { "name": "agregar a vacío", "call": "gestionar_inventario([], ['mapa', 'llave'], [])", "expected": ["llave", "mapa"] },
+      { "name": "quitar inexistente es ok", "call": "gestionar_inventario(['espada'], [], ['escudo'])", "expected": ["espada"] }
+    ],
+    "hints": [
+      "Podés usar `.append()` para agregar y `.remove()` para quitar (verificá si existe primero).",
+      "`.sort()` ordena la lista in-place."
+    ],
+    "xp": 40,
+    "grimoire": "listas-metodos"
+  },
+  {
+    "id": "z6-main",
+    "type": "main",
+    "mode": "function",
+    "title": "Jefe: Análisis de Puntajes",
+    "npc": "Juez Scorex",
+    "prompt": "Definí `analizar_puntajes(puntajes)` que reciba una lista de enteros y devuelva un diccionario con: `'maximo'`, `'minimo'`, `'promedio'` (float redondeado a 2 decimales), `'aprobados'` (cantidad con puntaje >= 60).",
+    "starterCode": "def analizar_puntajes(puntajes):\n    pass\n",
+    "tests": [
+      { "name": "caso completo", "call": "analizar_puntajes([50, 70, 80, 40, 90])", "expected": {"maximo": 90, "minimo": 40, "promedio": 66.0, "aprobados": 3} },
+      { "name": "todos aprobados", "call": "analizar_puntajes([60, 70, 80])", "expected": {"maximo": 80, "minimo": 60, "promedio": 70.0, "aprobados": 3} },
+      { "name": "ninguno aprobado", "call": "analizar_puntajes([10, 20, 30])", "expected": {"maximo": 30, "minimo": 10, "promedio": 20.0, "aprobados": 0} }
+    ],
+    "hints": [
+      "Usá `max()`, `min()`, `sum()` y `len()` para calcular los valores.",
+      "Para `aprobados`: contá los que tienen puntaje >= 60.",
+      "`round(promedio, 2)` redondea a 2 decimales."
+    ],
+    "xp": 90,
+    "unlocks": "z7"
+  },
+  {
+    "id": "z6-hidden-enumerate",
+    "type": "hidden",
+    "mode": "function",
+    "revealWhen": "completed:z6-sq-02",
+    "title": "Magia oculta: enumerate()",
+    "npc": "Archivista Listara",
+    "prompt": "Definí `con_indices(items)` que devuelva una lista de strings con formato `'0: item'`, `'1: item'`, etc. Usá `enumerate()` en vez de un contador manual.",
+    "starterCode": "def con_indices(items):\n    pass\n",
+    "tests": [
+      { "name": "con_indices(['a','b','c'])", "call": "con_indices(['a', 'b', 'c'])", "expected": ["0: a", "1: b", "2: c"] },
+      { "name": "con_indices([])", "call": "con_indices([])", "expected": [] }
+    ],
+    "hints": [
+      "`for i, item in enumerate(items):` da el índice y el valor.",
+      "`f\"{i}: {item}\"` formatea cada entrada."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]

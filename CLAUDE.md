@@ -81,14 +81,13 @@ npm run build    # build de producción
 
 ## Estado actual
 
-(Actualizar a medida que avanzamos. Empezar por el plan en `KICKOFF_PROMPT.md`.)
-
-- [ ] Scaffolding del proyecto (Vite + React + TS + Tailwind)
-- [ ] Worker de Pyodide + ejecución básica de código
-- [ ] Runner de tests en Python
-- [ ] Modelo de dominio del RPG (XP, niveles, quests) + tests
-- [ ] Capa de contenido + carga de Zona 0
-- [ ] UI: editor + panel de quest + HUD
-- [ ] Mapa de zonas y navegación
-- [ ] Persistencia en localStorage
-- [ ] Contenido completo del Módulo 1
+- [x] Scaffolding del proyecto (Vite + React + TS + Tailwind) — commit 696ba49
+- [x] Worker de Pyodide + ejecución básica de código — commit 17d9166
+- [x] Runner de tests en Python — 37 tests Vitest pasando
+- [x] Modelo de dominio del RPG (XP, niveles, quests) + tests — 70 tests Vitest pasando
+- [x] Capa de contenido + carga de Zona 0 y Zona 1 — 80 tests Vitest pasando
+- [x] UI: editor + panel de quest + HUD — build limpio, 80 tests pasando
+- [x] Mapa de zonas y navegación — incluido en Fase 6
+- [x] Persistencia en localStorage — capa storage/ con 85 tests pasando
+- [x] Grimorio + hidden quests — drawer desbloqueables
+- [x] Contenido completo del Módulo 1 — 8 zonas (z0–z7), 97 tests pasando

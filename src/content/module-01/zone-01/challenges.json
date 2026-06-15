@@ -1,0 +1,117 @@
+[
+  {
+    "id": "z1-sq-01",
+    "type": "side",
+    "mode": "function",
+    "title": "El hechizo de la suma",
+    "npc": "Maga Ada",
+    "prompt": "Definí una función `suma(a, b)` que devuelva la suma de `a` y `b`.",
+    "starterCode": "def suma(a, b):\n    # tu código acá\n    pass\n",
+    "tests": [
+      { "name": "suma(2, 3) == 5", "call": "suma(2, 3)", "expected": 5 },
+      { "name": "suma(-1, 1) == 0", "call": "suma(-1, 1)", "expected": 0 },
+      { "name": "suma(0, 0) == 0", "call": "suma(0, 0)", "expected": 0 },
+      { "name": "suma(10, 90) == 100", "call": "suma(10, 90)", "expected": 100 }
+    ],
+    "hints": [
+      "Una función devuelve valores con `return`.",
+      "`return a + b` es la solución."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z1-sq-02",
+    "type": "side",
+    "mode": "function",
+    "title": "Conversor de nivel",
+    "npc": "Maga Ada",
+    "prompt": "Definí una función `nivel_a_texto(n)` que reciba un número entero y devuelva un string con el formato `\"Nivel N\"` (por ejemplo, `nivel_a_texto(3)` devuelve `\"Nivel 3\"`).",
+    "starterCode": "def nivel_a_texto(n):\n    # Convertí el número a texto y armá el string\n    pass\n",
+    "tests": [
+      { "name": "nivel_a_texto(1) == 'Nivel 1'", "call": "nivel_a_texto(1)", "expected": "Nivel 1" },
+      { "name": "nivel_a_texto(3) == 'Nivel 3'", "call": "nivel_a_texto(3)", "expected": "Nivel 3" },
+      { "name": "nivel_a_texto(99) == 'Nivel 99'", "call": "nivel_a_texto(99)", "expected": "Nivel 99" }
+    ],
+    "hints": [
+      "Podés usar un f-string: `f\"Nivel {n}\"`.",
+      "O concatenar: `\"Nivel \" + str(n)`."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z1-sq-03",
+    "type": "side",
+    "mode": "function",
+    "title": "El intercambiador",
+    "npc": "Maga Ada",
+    "prompt": "Definí una función `intercambiar(a, b)` que devuelva una **tupla** `(b, a)` — los valores intercambiados.",
+    "starterCode": "def intercambiar(a, b):\n    # Devolvé los valores intercambiados como tupla\n    pass\n",
+    "tests": [
+      { "name": "intercambiar(1, 2) == (2, 1)", "call": "intercambiar(1, 2)", "expected": [2, 1] },
+      { "name": "intercambiar('x', 'y') == ('y', 'x')", "call": "intercambiar('x', 'y')", "expected": ["y", "x"] }
+    ],
+    "hints": [
+      "Podés devolver dos valores separados por coma: `return b, a`.",
+      "Python empaqueta eso automáticamente como una tupla."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z1-int-01",
+    "type": "integration",
+    "mode": "function",
+    "title": "La presentación del aventurero",
+    "npc": "Guardián del Registro",
+    "prompt": "Definí una función `presentar(nombre, nivel)` que reciba un nombre (str) y un nivel (int) y devuelva el string: `\"Soy [nombre], aventurero de Nivel [nivel].\"` (sin corchetes, con punto al final).",
+    "starterCode": "def presentar(nombre, nivel):\n    # Armá el mensaje de presentación\n    pass\n",
+    "tests": [
+      { "name": "presentar('Ada', 1)", "call": "presentar('Ada', 1)", "expected": "Soy Ada, aventurero de Nivel 1." },
+      { "name": "presentar('Turing', 42)", "call": "presentar('Turing', 42)", "expected": "Soy Turing, aventurero de Nivel 42." }
+    ],
+    "hints": [
+      "Usá un f-string para combinar nombre y nivel.",
+      "`f\"Soy {nombre}, aventurero de Nivel {nivel}.\"` es la solución."
+    ],
+    "xp": 40,
+    "grimoire": "variables-y-fstrings"
+  },
+  {
+    "id": "z1-main",
+    "type": "main",
+    "mode": "function",
+    "title": "Jefe: La Calculadora de Monedas",
+    "npc": "Tesorero del Reino",
+    "prompt": "Definí una función `calcular_monedas(oro, plata, bronce)` que convierta todo a **bronce** y lo devuelva como entero. Reglas: 1 oro = 100 bronce, 1 plata = 10 bronce.",
+    "starterCode": "def calcular_monedas(oro, plata, bronce):\n    # Convertí todo a bronce\n    pass\n",
+    "tests": [
+      { "name": "calcular_monedas(1, 0, 0) == 100", "call": "calcular_monedas(1, 0, 0)", "expected": 100 },
+      { "name": "calcular_monedas(0, 1, 0) == 10", "call": "calcular_monedas(0, 1, 0)", "expected": 10 },
+      { "name": "calcular_monedas(0, 0, 1) == 1", "call": "calcular_monedas(0, 0, 1)", "expected": 1 },
+      { "name": "calcular_monedas(2, 3, 5) == 235", "call": "calcular_monedas(2, 3, 5)", "expected": 235 },
+      { "name": "calcular_monedas(0, 0, 0) == 0", "call": "calcular_monedas(0, 0, 0)", "expected": 0 }
+    ],
+    "hints": [
+      "Cada moneda de oro vale 100 bronces, cada plata vale 10.",
+      "`oro * 100 + plata * 10 + bronce` es la fórmula."
+    ],
+    "xp": 90,
+    "unlocks": "z2"
+  },
+  {
+    "id": "z1-hidden-swap",
+    "type": "hidden",
+    "mode": "freeform",
+    "revealWhen": "completed:z1-sq-03",
+    "title": "Magia oculta: el intercambio elegante",
+    "npc": "Maga Ada",
+    "prompt": "En Python podés intercambiar dos variables en una sola línea. Partís de `a = 1` y `b = 2`. Usá la asignación múltiple para dejar `a = 2` y `b = 1`.",
+    "starterCode": "a = 1\nb = 2\n# Intercambialos en una línea\na, b = b, a\n",
+    "checkCode": "assert a == 2 and b == 1",
+    "hints": [
+      "En Python podés escribir `a, b = b, a` para intercambiar en una línea.",
+      "No necesitás una variable temporal."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]
