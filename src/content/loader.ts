@@ -49,8 +49,20 @@ export interface ZoneContent {
 import zonesData from './module-01/zones.json'
 import z0Challenges from './module-01/zone-00/challenges.json'
 import z1Challenges from './module-01/zone-01/challenges.json'
+import z2Challenges from './module-01/zone-02/challenges.json'
+import z3Challenges from './module-01/zone-03/challenges.json'
+import z4Challenges from './module-01/zone-04/challenges.json'
+import z5Challenges from './module-01/zone-05/challenges.json'
+import z6Challenges from './module-01/zone-06/challenges.json'
+import z7Challenges from './module-01/zone-07/challenges.json'
 import z0Theory from './module-01/zone-00/theory.md?raw'
 import z1Theory from './module-01/zone-01/theory.md?raw'
+import z2Theory from './module-01/zone-02/theory.md?raw'
+import z3Theory from './module-01/zone-03/theory.md?raw'
+import z4Theory from './module-01/zone-04/theory.md?raw'
+import z5Theory from './module-01/zone-05/theory.md?raw'
+import z6Theory from './module-01/zone-06/theory.md?raw'
+import z7Theory from './module-01/zone-07/theory.md?raw'
 
 // ZoneDefinition tiene un campo "description" adicional en el JSON
 // que no está en el tipo base — lo extendemos localmente
@@ -71,6 +83,12 @@ export function getModuleData(): ModuleData {
 const ZONE_CONTENT: Record<string, { theory: string; challenges: unknown[] }> = {
   z0: { theory: z0Theory, challenges: z0Challenges },
   z1: { theory: z1Theory, challenges: z1Challenges },
+  z2: { theory: z2Theory, challenges: z2Challenges },
+  z3: { theory: z3Theory, challenges: z3Challenges },
+  z4: { theory: z4Theory, challenges: z4Challenges },
+  z5: { theory: z5Theory, challenges: z5Challenges },
+  z6: { theory: z6Theory, challenges: z6Challenges },
+  z7: { theory: z7Theory, challenges: z7Challenges },
 }
 
 export function getZoneContent(zoneId: string): ZoneContent | null {

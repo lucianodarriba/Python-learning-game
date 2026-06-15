@@ -1,0 +1,126 @@
+[
+  {
+    "id": "z4-sq-01",
+    "type": "side",
+    "mode": "function",
+    "title": "El mayor de dos",
+    "npc": "Árbitro Magnus",
+    "prompt": "Definí una función `mayor(a, b)` que devuelva el mayor de dos números. Si son iguales, devolvé cualquiera de los dos.",
+    "starterCode": "def mayor(a, b):\n    pass\n",
+    "tests": [
+      { "name": "mayor(3, 7) == 7", "call": "mayor(3, 7)", "expected": 7 },
+      { "name": "mayor(10, 2) == 10", "call": "mayor(10, 2)", "expected": 10 },
+      { "name": "mayor(5, 5) == 5", "call": "mayor(5, 5)", "expected": 5 }
+    ],
+    "hints": [
+      "Usá `if a > b: return a` y `else: return b`.",
+      "También podés usar la función incorporada `max(a, b)`."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z4-sq-02",
+    "type": "side",
+    "mode": "function",
+    "title": "¿Aprobado o desaprobado?",
+    "npc": "Árbitro Magnus",
+    "prompt": "Definí una función `resultado(nota)` que devuelva `'Aprobado'` si la nota es mayor o igual a 6, o `'Desaprobado'` si es menor.",
+    "starterCode": "def resultado(nota):\n    pass\n",
+    "tests": [
+      { "name": "resultado(6) == 'Aprobado'", "call": "resultado(6)", "expected": "Aprobado" },
+      { "name": "resultado(10) == 'Aprobado'", "call": "resultado(10)", "expected": "Aprobado" },
+      { "name": "resultado(5) == 'Desaprobado'", "call": "resultado(5)", "expected": "Desaprobado" },
+      { "name": "resultado(0) == 'Desaprobado'", "call": "resultado(0)", "expected": "Desaprobado" }
+    ],
+    "hints": [
+      "Usá `if nota >= 6:` para verificar si aprobó.",
+      "Devolvé el string exacto con mayúscula inicial."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z4-sq-03",
+    "type": "side",
+    "mode": "function",
+    "title": "Clasificar aventurero",
+    "npc": "Árbitro Magnus",
+    "prompt": "Definí una función `clasificar(nivel)` que devuelva:\n- `'Novato'` si nivel < 5\n- `'Aprendiz'` si 5 <= nivel < 15\n- `'Experto'` si 15 <= nivel < 30\n- `'Maestro'` si nivel >= 30",
+    "starterCode": "def clasificar(nivel):\n    pass\n",
+    "tests": [
+      { "name": "clasificar(1) == 'Novato'", "call": "clasificar(1)", "expected": "Novato" },
+      { "name": "clasificar(5) == 'Aprendiz'", "call": "clasificar(5)", "expected": "Aprendiz" },
+      { "name": "clasificar(15) == 'Experto'", "call": "clasificar(15)", "expected": "Experto" },
+      { "name": "clasificar(30) == 'Maestro'", "call": "clasificar(30)", "expected": "Maestro" },
+      { "name": "clasificar(29) == 'Experto'", "call": "clasificar(29)", "expected": "Experto" }
+    ],
+    "hints": [
+      "Usá `if / elif / elif / else` para cubrir los cuatro casos.",
+      "Empezá por el caso más restrictivo o usá rangos con `elif`."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z4-int-01",
+    "type": "integration",
+    "mode": "function",
+    "title": "El guardián del puente",
+    "npc": "Guardián Gatekeeper",
+    "prompt": "Definí `puede_pasar(nivel, tiene_pase, es_amigo)` que devuelva `True` si el aventurero puede cruzar. Reglas:\n- Puede pasar si tiene_pase es True, O si es_amigo y nivel >= 10.",
+    "starterCode": "def puede_pasar(nivel, tiene_pase, es_amigo):\n    pass\n",
+    "tests": [
+      { "name": "con pase", "call": "puede_pasar(1, True, False)", "expected": true },
+      { "name": "amigo nivel alto", "call": "puede_pasar(10, False, True)", "expected": true },
+      { "name": "amigo nivel bajo", "call": "puede_pasar(5, False, True)", "expected": false },
+      { "name": "sin pase ni amistad", "call": "puede_pasar(50, False, False)", "expected": false }
+    ],
+    "hints": [
+      "Combiná las condiciones con `or` y `and`.",
+      "`tiene_pase or (es_amigo and nivel >= 10)`"
+    ],
+    "xp": 40,
+    "grimoire": "if-elif-else"
+  },
+  {
+    "id": "z4-main",
+    "type": "main",
+    "mode": "function",
+    "title": "Jefe: La Aventura de Decisiones",
+    "npc": "Narrador Plotus",
+    "prompt": "Definí `aventura(tiene_espada, tiene_escudo, nivel)` que devuelva el resultado:\n- Si tiene espada Y escudo Y nivel >= 5: `'Victoria total'`\n- Si tiene espada Y nivel >= 3: `'Victoria difícil'`\n- Si tiene escudo: `'Escape exitoso'`\n- En cualquier otro caso: `'Derrota'`",
+    "starterCode": "def aventura(tiene_espada, tiene_escudo, nivel):\n    pass\n",
+    "tests": [
+      { "name": "victoria total", "call": "aventura(True, True, 5)", "expected": "Victoria total" },
+      { "name": "victoria difícil", "call": "aventura(True, False, 3)", "expected": "Victoria difícil" },
+      { "name": "escape", "call": "aventura(False, True, 1)", "expected": "Escape exitoso" },
+      { "name": "derrota", "call": "aventura(False, False, 1)", "expected": "Derrota" },
+      { "name": "espada sin nivel suficiente", "call": "aventura(True, False, 2)", "expected": "Derrota" }
+    ],
+    "hints": [
+      "El orden de los `if` importa: poné primero el caso más específico.",
+      "El caso más específico (todos los requisitos) va primero."
+    ],
+    "xp": 90,
+    "unlocks": "z5"
+  },
+  {
+    "id": "z4-hidden-truthiness",
+    "type": "hidden",
+    "mode": "function",
+    "revealWhen": "completed:z4-sq-02",
+    "title": "Magia oculta: truthiness",
+    "npc": "Árbitro Magnus",
+    "prompt": "En Python, las colecciones vacías y el 0 son 'falsos'. Definí `tiene_items(lista)` que devuelva `True` si la lista tiene elementos, usando `if lista:` en vez de `if len(lista) > 0:`.",
+    "starterCode": "def tiene_items(lista):\n    # Usá truthiness\n    pass\n",
+    "tests": [
+      { "name": "tiene_items([1,2,3]) == True", "call": "tiene_items([1, 2, 3])", "expected": true },
+      { "name": "tiene_items([]) == False", "call": "tiene_items([])", "expected": false },
+      { "name": "tiene_items([0]) == True", "call": "tiene_items([0])", "expected": true }
+    ],
+    "hints": [
+      "En Python, `if lista:` es True si la lista tiene al menos un elemento.",
+      "`return bool(lista)` o simplemente `return True if lista else False`."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]

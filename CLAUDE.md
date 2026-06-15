@@ -89,5 +89,5 @@ npm run build    # build de producción
 - [x] UI: editor + panel de quest + HUD — build limpio, 80 tests pasando
 - [x] Mapa de zonas y navegación — incluido en Fase 6
 - [x] Persistencia en localStorage — capa storage/ con 85 tests pasando
-- [x] Grimorio + hidden quests — drawer desbloqueables, 250 tests pasando
-- [ ] Contenido completo del Módulo 1
+- [x] Grimorio + hidden quests — drawer desbloqueables
+- [x] Contenido completo del Módulo 1 — 8 zonas (z0–z7), 97 tests pasando

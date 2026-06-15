@@ -65,3 +65,63 @@ describe('getAllZones', () => {
     expect(zones.map(z => z.id)).toEqual(['z0','z1','z2','z3','z4','z5','z6','z7'])
   })
 })
+
+describe('contenido completo del Módulo 1', () => {
+  const zoneIds = ['z0', 'z1', 'z2', 'z3', 'z4', 'z5', 'z6', 'z7']
+
+  it('todas las zonas tienen contenido cargable', () => {
+    for (const id of zoneIds) {
+      const content = getZoneContent(id)
+      expect(content, `zona ${id} debería tener contenido`).not.toBeNull()
+      expect(content!.theory.length, `teoría de ${id} no debería estar vacía`).toBeGreaterThan(0)
+      expect(content!.challenges.length, `${id} debería tener challenges`).toBeGreaterThan(0)
+    }
+  })
+
+  it('cada zona tiene side quests, una main quest y una hidden quest', () => {
+    for (const id of zoneIds) {
+      const { challenges } = getZoneContent(id)!
+      const sides = challenges.filter(c => c.type === 'side')
+      const main = challenges.filter(c => c.type === 'main')
+      const hidden = challenges.filter(c => c.type === 'hidden')
+      expect(sides.length, `${id} debería tener al menos 2 side quests`).toBeGreaterThanOrEqual(2)
+      expect(main.length, `${id} debería tener exactamente 1 main quest`).toBe(1)
+      expect(hidden.length, `${id} debería tener al menos 1 hidden quest`).toBeGreaterThanOrEqual(1)
+    }
+  })
+
+  it('cada main quest desbloquea la zona siguiente', () => {
+    const expectedUnlock: Record<string, string> = {
+      z0: 'z1', z1: 'z2', z2: 'z3', z3: 'z4', z4: 'z5', z5: 'z6', z6: 'z7', z7: 'z8',
+    }
+    for (const id of zoneIds) {
+      const main = getZoneContent(id)!.challenges.find(c => c.type === 'main')!
+      expect(main.unlocks, `main de ${id} debería desbloquear ${expectedUnlock[id]}`).toBe(expectedUnlock[id])
+    }
+  })
+
+  it('cada hidden quest define una condición de revelación válida', () => {
+    for (const id of zoneIds) {
+      const hidden = getZoneContent(id)!.challenges.filter(c => c.type === 'hidden')
+      for (const h of hidden) {
+        expect(h.revealWhen, `hidden ${h.id} debería tener revealWhen`).toMatch(/^completed:/)
+      }
+    }
+  })
+
+  it('todos los ids de challenge son únicos en todo el módulo', () => {
+    const allIds = zoneIds.flatMap(id => getZoneContent(id)!.challenges.map(c => c.id))
+    const uniqueIds = new Set(allIds)
+    expect(uniqueIds.size).toBe(allIds.length)
+  })
+
+  it('los challenges en modo function tienen casos de test', () => {
+    for (const id of zoneIds) {
+      const fnChallenges = getZoneContent(id)!.challenges.filter(c => c.mode === 'function')
+      for (const c of fnChallenges) {
+        expect(c.tests, `${c.id} (function) debería tener tests`).toBeDefined()
+        expect(c.tests!.length, `${c.id} debería tener al menos 1 caso`).toBeGreaterThan(0)
+      }
+    }
+  })
+})

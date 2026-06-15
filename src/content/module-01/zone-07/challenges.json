@@ -1,0 +1,120 @@
+[
+  {
+    "id": "z7-sq-01",
+    "type": "side",
+    "mode": "function",
+    "title": "La ficha del personaje",
+    "npc": "Registrador Hashmar",
+    "prompt": "Definí `crear_personaje(nombre, nivel, clase)` que devuelva un diccionario con esas tres claves.",
+    "starterCode": "def crear_personaje(nombre, nivel, clase):\n    pass\n",
+    "tests": [
+      { "name": "claves correctas", "call": "crear_personaje('Ada', 5, 'Maga')", "expected": {"nombre": "Ada", "nivel": 5, "clase": "Maga"} },
+      { "name": "otro personaje", "call": "crear_personaje('Turing', 10, 'Hacker')", "expected": {"nombre": "Turing", "nivel": 10, "clase": "Hacker"} }
+    ],
+    "hints": [
+      "Un diccionario se crea con llaves: `{'clave': valor}`.",
+      "Devolvé un diccionario con las tres claves y sus valores."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z7-sq-02",
+    "type": "side",
+    "mode": "function",
+    "title": "Frecuencia de palabras",
+    "npc": "Registrador Hashmar",
+    "prompt": "Definí `contar_palabras(texto)` que devuelva un diccionario donde cada clave es una palabra (en minúsculas) y el valor es cuántas veces aparece. Ejemplo: `contar_palabras('hola mundo hola')` → `{'hola': 2, 'mundo': 1}`",
+    "starterCode": "def contar_palabras(texto):\n    pass\n",
+    "tests": [
+      { "name": "básico", "call": "contar_palabras('hola mundo hola')", "expected": {"hola": 2, "mundo": 1} },
+      { "name": "una palabra", "call": "contar_palabras('python')", "expected": {"python": 1} },
+      { "name": "mayúsculas", "call": "contar_palabras('Hola hola')", "expected": {"hola": 2} }
+    ],
+    "hints": [
+      "Recorrés las palabras de `texto.lower().split()`.",
+      "Usá `.get(palabra, 0) + 1` para contar sin KeyError."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z7-sq-03",
+    "type": "side",
+    "mode": "function",
+    "title": "Actualizar stats",
+    "npc": "Registrador Hashmar",
+    "prompt": "Definí `subir_nivel(personaje)` que reciba un diccionario con la clave `'nivel'` y devuelva un nuevo diccionario con el nivel incrementado en 1 y la clave `'xp'` reseteada a 0.",
+    "starterCode": "def subir_nivel(personaje):\n    pass\n",
+    "tests": [
+      { "name": "sube nivel", "call": "subir_nivel({'nombre': 'Ada', 'nivel': 5, 'xp': 100})['nivel']", "expected": 6 },
+      { "name": "resetea xp", "call": "subir_nivel({'nombre': 'Ada', 'nivel': 5, 'xp': 100})['xp']", "expected": 0 },
+      { "name": "nivel correcto", "call": "subir_nivel({'nivel': 3, 'xp': 50})['nivel']", "expected": 4 }
+    ],
+    "hints": [
+      "Creá una copia con `nuevo = dict(personaje)` o `{**personaje}`.",
+      "Luego modificá `nuevo['nivel'] += 1` y `nuevo['xp'] = 0`."
+    ],
+    "xp": 15
+  },
+  {
+    "id": "z7-int-01",
+    "type": "integration",
+    "mode": "function",
+    "title": "La tienda del reino",
+    "npc": "Mercader Dictus",
+    "prompt": "Definí `comprar(catalogo, carrito, presupuesto)` donde `catalogo` es un dict `{item: precio}`, `carrito` es una lista de items a comprar en orden, y `presupuesto` es un número. Devolvé un dict con `'comprados'` (lista de items comprados) y `'saldo'` (dinero restante).",
+    "starterCode": "def comprar(catalogo, carrito, presupuesto):\n    pass\n",
+    "tests": [
+      { "name": "compra parcial", "call": "comprar({'espada': 50, 'escudo': 30, 'poción': 10}, ['espada', 'poción', 'escudo'], 70)", "expected": {"comprados": ["espada", "poción"], "saldo": 10} },
+      { "name": "sin presupuesto", "call": "comprar({'espada': 100}, ['espada'], 50)", "expected": {"comprados": [], "saldo": 50} },
+      { "name": "todo entra", "call": "comprar({'llave': 5}, ['llave'], 10)", "expected": {"comprados": ["llave"], "saldo": 5} }
+    ],
+    "hints": [
+      "Recorrés el carrito en orden. Si el precio <= saldo, comprás y restás del saldo.",
+      "Usá `catalogo.get(item, 0)` para obtener el precio con seguridad."
+    ],
+    "xp": 40,
+    "grimoire": "diccionarios-get"
+  },
+  {
+    "id": "z7-main",
+    "type": "main",
+    "mode": "function",
+    "title": "Jefe: Sistema de Inventario",
+    "npc": "Maestre Inventus",
+    "prompt": "Definí `reporte_inventario(inventario)` donde `inventario` es un dict `{item: cantidad}`. Devolvé un dict con: `'total_items'` (suma de cantidades), `'items_unicos'` (cantidad de claves), `'mas_abundante'` (clave con mayor valor, o `None` si vacío).",
+    "starterCode": "def reporte_inventario(inventario):\n    pass\n",
+    "tests": [
+      { "name": "caso normal", "call": "reporte_inventario({'espada': 2, 'poción': 5, 'escudo': 1})", "expected": {"total_items": 8, "items_unicos": 3, "mas_abundante": "poción"} },
+      { "name": "inventario vacío", "call": "reporte_inventario({})", "expected": {"total_items": 0, "items_unicos": 0, "mas_abundante": null} },
+      { "name": "un solo item", "call": "reporte_inventario({'espada': 3})", "expected": {"total_items": 3, "items_unicos": 1, "mas_abundante": "espada"} }
+    ],
+    "hints": [
+      "`sum(inventario.values())` suma las cantidades.",
+      "`max(inventario, key=inventario.get)` devuelve la clave con mayor valor.",
+      "Verificá si el dict está vacío antes de llamar `max()`."
+    ],
+    "xp": 90,
+    "unlocks": "z8"
+  },
+  {
+    "id": "z7-hidden-get",
+    "type": "hidden",
+    "mode": "function",
+    "revealWhen": "completed:z7-sq-02",
+    "title": "Magia oculta: dict.get() para evitar KeyError",
+    "npc": "Registrador Hashmar",
+    "prompt": "Definí `obtener_stat(personaje, stat)` que devuelva el valor del stat si existe, o `0` si no existe. Usá `.get()` en vez de verificar con `in` primero.",
+    "starterCode": "def obtener_stat(personaje, stat):\n    pass\n",
+    "tests": [
+      { "name": "stat existente", "call": "obtener_stat({'vida': 100, 'mana': 50}, 'vida')", "expected": 100 },
+      { "name": "stat inexistente devuelve 0", "call": "obtener_stat({'vida': 100}, 'mana')", "expected": 0 },
+      { "name": "dict vacío", "call": "obtener_stat({}, 'vida')", "expected": 0 }
+    ],
+    "hints": [
+      "`dict.get(clave, default)` devuelve el valor o el default si no existe.",
+      "`personaje.get(stat, 0)` es la solución de una línea."
+    ],
+    "xp": 30,
+    "wisdom": 1
+  }
+]

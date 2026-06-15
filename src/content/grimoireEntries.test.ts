@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { GRIMOIRE_ENTRIES, getGrimoireEntry } from './grimoireEntries'
+import { getZoneContent } from './loader'
 
 describe('GRIMOIRE_ENTRIES', () => {
   it('tiene al menos 3 entradas', () => {
@@ -32,6 +33,21 @@ describe('getGrimoireEntry', () => {
     expect(wisdom.length).toBeGreaterThan(0)
     for (const e of wisdom) {
       expect(e.isWisdom).toBe(true)
+    }
+  })
+})
+
+describe('consistencia con el contenido', () => {
+  it('toda referencia "grimoire" en los challenges tiene su entrada definida', () => {
+    const zoneIds = ['z0', 'z1', 'z2', 'z3', 'z4', 'z5', 'z6', 'z7']
+    const referencedIds = zoneIds
+      .flatMap((id) => getZoneContent(id)!.challenges)
+      .map((c) => c.grimoire)
+      .filter((g): g is string => typeof g === 'string')
+
+    expect(referencedIds.length).toBeGreaterThan(0)
+    for (const id of referencedIds) {
+      expect(getGrimoireEntry(id), `falta la entrada de grimorio "${id}"`).toBeDefined()
     }
   })
 })
